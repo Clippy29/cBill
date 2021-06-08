@@ -187,7 +187,6 @@ AddEventHandler("cBill:GetBill", function(bill)
     ESX.ShowNotification("Facture: ~b~"..bill.title.."~s~.\nMontant: ~g~"..price.."$~s~.")
     ESX.ShowNotification("Accepter: ~b~E ~s~ou Refuser: ~r~X~s~.")
 
-    print(price, "Test 1")
     Bill.OnThread = false
     Bill.HavePayed = false
     Bill.OnThread = true
@@ -196,7 +195,6 @@ AddEventHandler("cBill:GetBill", function(bill)
             Wait(1)
             if Bill.OnThread and IsControlJustPressed(1, 51) then 
                 Bill.OnThread = false
-                print(price, "Test 2")
                 TriggerServerEvent("cBill:PayBills", bill, price)
 
                 TaskPlayAnimToPlayer({"mp_common", "givetake2_a"}, 2500, 51)
